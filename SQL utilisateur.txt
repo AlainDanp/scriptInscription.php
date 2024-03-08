@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS utilisateurs ;
+
+CREATE TABLE utilisateurs 
+(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	pseudo VARCHAR (15),
+	motDePasse VARCHAR (10),
+	statutAdmin BOOLEAN 
+);

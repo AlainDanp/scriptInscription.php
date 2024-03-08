@@ -1,0 +1,15 @@
+SELECT * FROM produits;
+
+-------
+
+SELECT * FROM produits WHERE solde = 1;
+-----
+INSERT INTO produits (nom, prix, description, solde, urlImage) 
+VALUES ('smoking chaussure', 190, 'Chaussures pour costume Homme', 1, 'Produits/p7.jpg');
+
+------
+DELETE FROM produits WHERE id = 5;
+------
+UPDATE produits SET solde = 1 WHERE id = 3;
+-----
+UPDATE produits SET prix = prix * 0.7 WHERE solde = 1;

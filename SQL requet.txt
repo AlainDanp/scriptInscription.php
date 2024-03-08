@@ -1,0 +1,84 @@
+DROP PROCEDURE IF EXISTS ListeProduits;
+
+DELIMITER //
+
+CREATE PROCEDURE ListeProduits()
+BEGIN
+    SELECT * FROM produits;
+END//
+
+DELIMITER ;
+
+---------
+DROP PROCEDURE IF EXISTS ListeProduits;
+
+DELIMITER //
+
+CREATE PROCEDURE ListeProduits()
+BEGIN
+    SELECT * FROM produits WHERE solde = 1;
+END//
+
+DELIMITER ;
+
+---------
+
+DROP PROCEDURE IF EXISTS ajouter_produit;
+
+DELIMITER //
+
+CREATE PROCEDURE ajouter_produit(
+    IN p_nom VARCHAR(30),
+    IN p_prix INT UNSIGNED,
+    IN p_description VARCHAR(200),
+    IN p_solde BOOLEAN,
+    IN p_urlImage VARCHAR(200)
+)
+BEGIN
+    INSERT INTO produits (nom, prix, description, solde, urlImage) 
+    VALUES ('smoking chaussure', 190, 'Chaussures pour costume Homme', 1, 'Produits/p7.jpg');
+END//
+
+DELIMITER ;
+
+
+--------
+
+DROP PROCEDURE IF EXISTS supprimer_produit;
+
+DELIMITER //
+
+CREATE PROCEDURE supprimer_produit(IN p_id INT)
+BEGIN
+    DELETE FROM produits WHERE id = 3;
+END//
+
+DELIMITER ;
+
+-------
+
+DROP PROCEDURE IF EXISTS mettre_produit_en_solde;
+
+DELIMITER //
+
+CREATE PROCEDURE mettre_produit_en_solde(IN p_id INT)
+BEGIN
+    UPDATE produits SET solde = 1 WHERE id = 4;
+END//
+
+DELIMITER ;
+
+
+-------
+
+DROP PROCEDURE IF EXISTS appliquer_remise;
+
+DELIMITER //
+
+CREATE PROCEDURE appliquer_remise()
+BEGIN
+    UPDATE produits SET prix = prix * 0.7 WHERE solde = 1;
+END//
+
+DELIMITER ;
+
